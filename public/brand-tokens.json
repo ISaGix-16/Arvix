@@ -1,0 +1,21 @@
+{
+  "brand": {
+    "orange": "#F97316",
+    "orangeHover": "#EA580C",
+    "lightModePrimary": "#C94F0B"
+  },
+  "background": {
+    "dark": "#0D1117",
+    "light": "#F7F8FA"
+  },
+  "text": {
+    "dark": "#E6EDF3",
+    "light": "#172033"
+  },
+  "tagline": "Ideas into visuals.",
+  "notes": [
+    "Dark mode is the default brand presentation.",
+    "Use the orange folded-ribbon A as the app mark.",
+    "Avoid gradients in the product UI; the logo itself may retain its dimensional orange shading."
+  ]
+}

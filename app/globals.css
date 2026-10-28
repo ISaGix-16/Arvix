@@ -1,26 +1,382 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Application colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+
+  /* Card */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  /* Popover */
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Primary */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  /* Secondary */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Muted */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Accent */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Destructive */
+  --color-destructive: var(--destructive);
+
+  /* Borders and inputs */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Arvix brand colors */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-active: var(--brand-active);
+  --color-brand-subtle: var(--brand-subtle);
+
+  /* AI assistant */
+  --color-ai-surface: var(--ai-surface);
+  --color-ai-user: var(--ai-user);
+  --color-ai-assistant: var(--ai-assistant);
+
+  /* Canvas */
+  --color-canvas: var(--canvas);
+  --color-canvas-grid: var(--canvas-grid);
+  --color-canvas-connector: var(--canvas-connector);
+
+  /* Semantic status colors */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================================================
+   ARVIX — LIGHT MODE
+   Soft white surfaces with burnt-orange accents.
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --background: #f7f8fa;
+  --background-secondary: #f0f2f5;
+
+  /* Surfaces */
+  --card: #ffffff;
+  --card-foreground: #172033;
+  --popover: #ffffff;
+  --popover-foreground: #172033;
+
+  /* Text */
+  --foreground: #172033;
+  --text-secondary: #475467;
+  --text-muted: #667085;
+  --text-disabled: #98a2b3;
+
+  /* Brand */
+  --brand: #c94f0b;
+  --brand-hover: #a83d08;
+  --brand-active: #7c2d12;
+  --brand-subtle: #fff0e5;
+
+  /* Primary */
+  --primary: #c94f0b;
+  --primary-foreground: #ffffff;
+
+  /* Secondary */
+  --secondary: #f0f2f5;
+  --secondary-foreground: #344054;
+
+  /* Muted */
+  --muted: #f0f2f5;
+  --muted-foreground: #667085;
+
+  /* Accent */
+  --accent: #fff0e5;
+  --accent-foreground: #9a3412;
+
+  /* Feedback */
+  --destructive: #b42318;
+  --success: #18794e;
+  --warning: #854d0e;
+  --info: #175cd3;
+
+  /* Borders and focus */
+  --border: #d0d5dd;
+  --input: #d0d5dd;
+  --ring: #c94f0b;
+
+  /* Charts */
+  --chart-1: #c94f0b;
+  --chart-2: #175cd3;
+  --chart-3: #18794e;
+  --chart-4: #854d0e;
+  --chart-5: #6941c6;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #172033;
+  --sidebar-primary: #c94f0b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fff0e5;
+  --sidebar-accent-foreground: #9a3412;
+  --sidebar-border: #eaecf0;
+  --sidebar-ring: #c94f0b;
+
+  /* AI assistant */
+  --ai-surface: #ffffff;
+  --ai-user: #f0f2f5;
+  --ai-assistant: #fff7ed;
+
+  /* Canvas */
+  --canvas: #ffffff;
+  --canvas-grid: #e4e7ec;
+  --canvas-connector: #667085;
+
+  /* Radius */
+  --radius: 0.625rem;
+}
+
+/* =========================================================
+   ARVIX — DARK MODE
+   Midnight charcoal surfaces with burnt-orange accents.
+   ========================================================= */
+
+.dark {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --background: #0d1117;
+  --background-secondary: #10151d;
+
+  /* Surfaces */
+  --card: #151b23;
+  --card-foreground: #e6edf3;
+  --popover: #202936;
+  --popover-foreground: #e6edf3;
+
+  /* Text */
+  --foreground: #e6edf3;
+  --text-secondary: #b1bac4;
+  --text-muted: #8491a0;
+  --text-disabled: #626d7a;
+
+  /* Brand */
+  --brand: #f97316;
+  --brand-hover: #ea580c;
+  --brand-active: #c2410c;
+  --brand-subtle: #3b2117;
+
+  /* Primary */
+  --primary: #f97316;
+  --primary-foreground: #171717;
+
+  /* Secondary */
+  --secondary: #252f3d;
+  --secondary-foreground: #e6edf3;
+
+  /* Muted */
+  --muted: #202936;
+  --muted-foreground: #b1bac4;
+
+  /* Accent */
+  --accent: #3b2117;
+  --accent-foreground: #fdba74;
+
+  /* Feedback */
+  --destructive: #f87171;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --info: #60a5fa;
+
+  /* Borders and focus */
+  --border: #30363d;
+  --input: #303b4a;
+  --ring: #f97316;
+
+  /* Charts */
+  --chart-1: #f97316;
+  --chart-2: #60a5fa;
+  --chart-3: #4ade80;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
+
+  /* Sidebar */
+  --sidebar: #10151d;
+  --sidebar-foreground: #e6edf3;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #171717;
+  --sidebar-accent: #252f3d;
+  --sidebar-accent-foreground: #e6edf3;
+  --sidebar-border: #252d38;
+  --sidebar-ring: #f97316;
+
+  /* AI assistant */
+  --ai-surface: #171d28;
+  --ai-user: #252f3d;
+  --ai-assistant: #19212c;
+
+  /* Canvas */
+  --canvas: #111720;
+  --canvas-grid: #283241;
+  --canvas-connector: #8491a0;
+}
+
+/* =========================================================
+   BASE STYLES
+   ========================================================= */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand) 25%, transparent);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading), var(--font-geist-sans), sans-serif;
+  }
+
+  /* Preserve the editor's own typography inside documents. */
+  .bn-container :is(h1, h2, h3) {
+    font-family: inherit;
   }
 }
 
-body {
-  background: var(--background);
+/* =========================================================
+   ARVIX BRAND UTILITIES
+   ========================================================= */
+
+/* Brand-colored text */
+@utility text-brand {
+  color: var(--brand);
+}
+
+/* Brand-colored background */
+@utility bg-brand {
+  background-color: var(--brand);
+}
+
+/* Subtle brand background */
+@utility bg-brand-subtle {
+  background-color: var(--brand-subtle);
+}
+
+/* Brand-colored border */
+@utility border-brand {
+  border-color: var(--brand);
+}
+
+/* =========================================================
+   CANVAS UTILITIES
+   ========================================================= */
+
+/* Canvas background with a subtle, theme-aware dot grid. */
+@utility canvas-grid-bg {
+  background-color: var(--canvas);
+  background-image: radial-gradient(var(--canvas-grid) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Use this utility only on the canvas editor.
+   The dots are intentionally subtle and are not a UI gradient. */
+@utility canvas-surface {
+  background-color: var(--canvas);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   ACCESSIBILITY AND MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
