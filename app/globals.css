@@ -182,6 +182,62 @@
   --radius: 0.625rem;
 }
 
+
+@utility topo-bg {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: min(100%, 56rem);
+    z-index: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+
+    background-image: url("/textures/topo.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: min(900px, 150vw) auto;
+    opacity: 0.035;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* The SVG uses white strokes; invert them for contrast on light surfaces. */
+:root:not(.dark) .topo-bg::before {
+  filter: invert(1);
+  opacity: 0.04;
+}
+
+@utility hero-glow {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--background);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: radial-gradient(
+      ellipse 55% 50% at 50% 40%,
+      color-mix(in srgb, var(--brand) 12%, transparent),
+      transparent 72%
+    );
+  }
+}
+
+
 /* =========================================================
    ARVIX — DARK MODE
    Midnight charcoal surfaces with burnt-orange accents.

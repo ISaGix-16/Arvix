@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import AppShell from "@/components/AppShell";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/ui/themes";
+import { UpgradeDialogProvider } from "@/components/UpgradeDialog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         className={`dark ${geistSans.variable} ${geistMono.variable} ${bricolage.variable} h-full antialiased`}>
         <body className="min-h-full flex flex-col">
           <TooltipProvider>
-            <AppShell>{children}</AppShell>
+            <UpgradeDialogProvider>
+              <AppShell>{children}</AppShell>
+            </UpgradeDialogProvider>
           </TooltipProvider>
 
           <Toaster richColors />
